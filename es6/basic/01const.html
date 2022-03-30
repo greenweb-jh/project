@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        /*const :  es6에 새로 추가된 변수 
+        let과 다른 점이라면 
+        let은 변하는 값을 넣을 수 있지만 const는 변하지 않는 값(상수)에만 적용할 수 있다.
+        그 외에는 일반 변수와 동일
+
+        */
+
+        //lef을 이용해 변수를 선언할 경우
+        let abc = 123;
+        console.log(abc) //123
+        abc = 111;
+        console.log(abc) //111 
+        //하나의 변수에 값을 변경시킬 수 있다.
+
+        const bbb = 123;
+        console.log(bbb)//123
+        //bbb = 111;//Assignment to constant variable.(상수 변수에 할당)
+        //const는 한번 정한 변수의 값은 바꿀 수 없다.
+
+        //const 사용시 주의점
+
+        var a1;
+        let a2;
+       //const a3;
+
+        console.log(a1)//undefined
+        console.log(a2)//undefined
+        //console.log(a3) //Missing initializer in const declaration 
+        //const는 변수의 선언과 동시에 값이 할당되어야 한다.
+
+        //예외의 경우
+
+        //const는 재할당은 불가능 하지만 할당된 내용의 객체(프로퍼티의 추가 및 삭제 변경)은 가능하다.
+
+        const name = {myName :'park'};
+        console.log(name) //{myName: 'park'}
+        name.myName = 'kim';
+        console.log(name) //kim
+
+        //위와 값이 객체 자체의 내용이 변경되는 경우라면 변수 자체에 대한 값은 변경되지 않는다.
+        //객체타입의 변수 선언에는 const가 좋다. (let이 안좋다는건 아님)
+
+        /*그럼 언제 let을 쓰고 var을 쓰고 const를 써야 할까?
+        
+        1. es6문법으로 사용하는 경우 var의 선언은 지향하지 않고 있다.
+        2. 값의 재할당이 필요한 경우(명시적으로 객체타입의 주소값을 변경하는 경우)에는 let을 사용한다.
+        3. 변경이 발생하지 않는 원시형의 상수와 객체에는 const를 사용하여 혹시 모를 변수의 재선언을 방지한다.
+        처음에 const로 선언후 재할당이 필요한 경우에 let을 바꿔도 된다.
+        
+        */
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

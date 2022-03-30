@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+        함수와 클래스의 차이
+        클래스 = 연관있는 변수와 함수를 감싸는 객체
+        =객체단위의 코드를 그룹화해서 중복 코드의 제거 및 코드의 재 사용성 상승
+        클래스명은 한번만 선언하며, 클래스안에는 데이터를 넣지 않는다.
+        그러므로 메모리도 잡지 않는다.
+        호이스팅을 일으키지 않음
+
+        함수
+        특정 기능을 하는 변수 + 구문 ( 예 : 슬라이더, 메뉴 드랍과 같은 이벤트성 함수)
+        기능단위의 코드의 그룹화
+        기능 단위의 중복 코드 제거 및 코드의 재 사용성
+
+        함수는 기능을 포장하는 단위지만 클래스는 함수를 포함하여 포장하는 담위이다.
+
+        객체 = 클래스나 함수로 인해 생성된 것들
+        메모리나 데이터를 가지고 있으며 1개의 클래스로 여러개를 만들수 있다.
+
+
+        
+        */
+        //case01
+        class Car{
+            //constructor() = 생성자 생성자는 인자를 받아 값을 할당한다. 속성은 반드시construction에있어야 하며
+            //메소드는 class코드 내부에 바로 작성한다.
+            constructor(name){
+                this.brand = name; //여기에서 this는 갹체(변수명)을 지칭한다.
+            }
+
+        }//클래스를 선언할때에는 첫글자를 대문자로 시작한다(필수는 아니고 함수와 클래스의 차이점을 두기 위함)
+
+        var myCar = new Car('kia');
+        console.log(myCar.brand)
+
+
+        //case02 
+        var Car01 = class{
+            constructor(name){
+                this.brand = name
+            }
+            textCall1(){
+                return `나는 ${brand} 를 가지게 되었다. `
+                //Method: 클래스 내에 정의하는 Method는 prototype에 저장된다. 
+                //Method는 Function과 다름에 주의한다. Method는 특정 객체에 종속된 것으로 객체가 
+                //아닌 반면, Function은 객체로 취급된다.
+            }
+                
+        }
+        var myCar01 = new Car('hyundai');
+        console.log(myCar01.brand)
+        // console.log(myCar01.textCall1('22'))
+
+        //case03
+
+        class Car02{
+            brand = '22';
+            name = '33'
+/*
+            constructor(brand, name){
+                this.brand = brand
+                this.name = name
+            }
+*/
+            textCall(){
+                return `나는 ${this.brand} 를 가지게 되었다. `
+            }
+        }
+        mycar000 = new Car02('kia')
+        //console.log(mycar000.brand)
+        console.log(mycar000.textCall())
+
+        //속성호출 :인스턴스명.속성명;
+        //메서드 호출 : 인스턴스명.메서드명
+
+        //before ES6
+        function CoffeeMachine(coffee) {
+            this.coffee = coffee;
+        }
+
+        CoffeeMachine.prototype.machine = function() {
+            console.log(`${this.coffee} 커피가 완성됐습니다.`);
+        }
+
+        const myCoffee = new CoffeeMachine("cold brew");
+        const myCoffee02 = new CoffeeMachine('americano')
+
+        console.log(myCoffee.coffee);
+        console.log(myCoffee02.coffee);
+        myCoffee.machine();
+
+
+
+        class CoffeeMachine01 {
+            constructor(coffee){
+                this.coffee = coffee;
+            }
+            
+            machine(){
+                console.log(`${this.coffee} 커피가 완성됐습니다.`);
+            }
+        }
+
+        const myCoffee01 = new CoffeeMachine01("cold brew");
+        const myCoffee001 = new CoffeeMachine01("cold");
+
+        console.log(myCoffee01.coffee);
+        console.log(myCoffee001.coffee);
+        myCoffee01.machine();
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

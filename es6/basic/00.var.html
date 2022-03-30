@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+        변수의 종류
+        var = 가장 기본적으로 선언하는 변수의 종류
+        es5버전까지는 변수의 종류는 var만 선언할 수 있었다.
+        함수레벨스코프(function-level-scope)의 종류이며, 함수외부에서 선언된 함수는 모두 전역변수로만 인식한다.
+        이 문제는 의도치 않은 경우에도 전역변수로 인식하게 되는 문제가 생긴다.
+        ex)for문 변수 선언문에서 선언한 변수를 for문의 코드 블록 외부에서도 참조할 수 있는 현상
+
+        
+
+        
+
+        */
+        console.log(i)
+        for(var i = 0; i <= 10; i++){
+            console.log(i)//1~10
+        }
+        console.log(i) //11 for문에서 정리된 i의 끝 수에 +1을 해서 외부에서 출력함
+
+        for(let b = 0; b <= 10; b++){
+            console.log(b)//1~10까지 출력
+        }
+        //console.log(b) //b is not defined 
+        //변수의 중복 선언 허용은 의도하지 않은 변수값이 변경 될수도 있다.
+
+
+        //변수를 선언하기 이전에 참조할 수 있다. = 변수의 호이스팅
+        //자바스크립트는 ES6에서 도입된 let, const를 포함하여 모든 
+        //선언(var, let, const, function, function*, class)을 호이스팅한다. 
+        //호이스팅(Hoisting)이란, var 선언문이나 function 선언문 등을 해당 스코프의 
+        //선두로 옮긴 것처럼 동작하는 특성을 말한다.
+
+        console.log(abc)//undefined
+
+        var abc = 123;
+
+        //console.log(bb); //Cannot access 'bb' before initialization
+
+        let bb =123;
+        console.log(bb) //123
+
+        //console.log(cc); //Cannot access 'cc' before initialization
+        const cc = 123;
+        console.log(cc) //123
+
+
+
+        //의도치 않은 전역변수의 설정은 변수의 범위를 예측하기 힘들며, 의도치 않게 변경될 가능성을 가지고 있으므로
+        //변수의 유효범위는 적을수록 좋다 
+        //변수의 범위를 제한하기 위해서 es6에서는 var 대신 const와 let이 생성되었다.
+
+        //const와 let은 블록 레벨 스코프(block-level-scope)의 변수이다.
+        /*
+        블록레벨 스코프와 함수레벨 스코프의 차이
+
+        함수 레벨 스코프(Function-level scope)
+        함수 내에서 선언된 변수는 함수 내에서만 유효하며 함수 외부에서는 참조할 수 없다. 
+        즉, 함수 내부에서 선언한 변수는 지역 변수이며 함수 외부에서 선언한 변수는 모두 전역 변수이다.
+
+        블록 레벨 스코프(Block-level scope)
+        모든 코드 블록(함수, if 문, for 문, while 문, try/catch 문 등) 내에서 선언된 변수는 
+        코드 블록 내에서만 유효하며 코드 블록 외부에서는 참조할 수 없다. 즉, 코드 블록 내부에서 선언한 변수는 지역 변수이다.
+
+
+        let과 const함수 쓸 때 주의점
+        1. 변수 중복 선언 금지
+        var로 변수를 선언했을 경우 동일한 변수명으로 중복해서 선언할 수 있다. 하지만 let과 const는 변수의 중복 선언이
+        불가능 하다.(문법 에러)
+
+        */
+        var abc = 123;
+        var abc = 456;
+
+        console.log(abc)//456
+
+        let text = 123;
+        //let text = 456;
+
+        //console.log(text) //Uncaught SyntaxError: Identifier 'text' has already been declared = 문법에러
+
+
+       
+
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>

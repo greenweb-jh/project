@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class FontStyle{
+            constructor(el, color,size){
+                this.el = el;
+                this.color = color;
+                this.size = size;
+            }
+
+            text(){
+                document.getElementById(this.el).style.color = this.color
+                document.getElementById(this.el).style.fontSize = this.size;
+            }
+
+        }
+        // FontStyle.prototype.changeColor = function(color){
+        //     document.getElementById(this.el).style.color = color;
+        // }
+        // FontStyle.prototype.changeSize = function(size){
+        //     document.getElementById(this.el).style.fontSize = size;
+        // }
+
+        window.onload = function(){
+            var c1 = new FontStyle('text01', 'blue', '100px');
+            c1.text()
+
+        }
+        
+    </script>
+</head>
+<body>
+
+    <h2 id="text01">text01</h2>
+    <h2 id="text02">text02</h2>
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        // /*function을 이용하여 함수의 선언을 하던 대신 => 화살표로 함수의 선언을 대신할 수 있다.*/
+
+        // /*es5에서는 function을 선언하는 함수 선언문을 사용한다.*/
+        // function number(num){
+        //     return num + num
+        // }
+        
+        // console.log(number(10)) //20
+
+        // //es5에서는 변수에 함수를 호출하는 함수 표현식이 사용된다. 이럴때에는 함수명이 생략된다(변수명으로 대체)
+
+        // var number01 = function(number){
+        //     return number + number
+        // }
+        // console.log(number01(20))
+
+        // var number01 = function(a,b){
+        //     return a + b
+        // }
+        // console.log(number01(20,10))
+
+
+        // //es6에서 화살표 함수를 사용할때에는 함수선언식을 사용할 수 없다 함수표현식만 사용된다.
+
+        // const aaa = num => num + num;
+        // console.log(aaa(20))
+
+        // //또는 return을 이용하여 콜백함수로 표현한다.
+
+        // //es5
+        // var arr = [1,2,3];
+        // var sss = arr.map(function(num){
+        //     return num + num
+        // })
+        // //map() 메서드는 배열 내의 모든 요소 각각에 대하여 주어진 함수를 호출한 결과를 모아 새로운 배열을 반환한다.
+        // console.log(sss) //2, 4, 6
+
+        // //es6
+        //  const arr01 = [1,2,3];
+        //  const num = arr01.map(num =>num + num);
+
+        //  console.log(num)//2,4,6
+
+        //함수 선언 문법01
+        function initFunction(){ //함수의 선언 (함수명이 있다)
+            console.log('test') //함수안에 실행되는 코드
+        }
+        initFunction() //함수를 호출해야만 함수안에 코드가 실행이 됨
+
+        //함수 선언 문법02
+        var test = function(){ //변수에 함수를 선언 (변수명이 함수명)
+            console.log('test02') //실행코드
+        }
+        test() //변수명을 호출하여 함수를 실행
+
+
+        //es6 arrowFunction 
+
+        var test02 = () =>{ //function 대신 함수를 사용하여 함수를 선언
+            console.log('test03') //기존과 같이 실행 코드
+        }
+        test02()//함수를 호출
+        //function 을 생략하고 => 만 사용하여 구문을 짧고 간결하게 작성할 수 있다.
+
+        //화살표 함수 선언 방법
+        //표현식이 한개인 경우
+        var text = () => console.log('text'); //실행코드가 한개인 경우 {}를 생략하여 사용할 수 있다.
+        text()
+
+        //표현식이 여러개인 경우
+        //var text02 =()=> let first = `jong-ho`; let last = `park`; console.log(`제 이름은 ${first} ${last}입니다`)
+        //에러
+        var text02 =()=>{
+            let first = `jong-ho`;
+            let last = `park`;
+            console.log(`제 이름은 ${first} ${last}입니다`)
+        }
+        text02()
+        //실행코드가 한개 이상인 경우에는 반드시 {}안에 담아 사용한다.
+
+        //매개변수가 한개인 경우 ()를 생략하여 사용해도 된다. ()포함해도 오류는 아님
+        var text03 = a =>{ 
+            return a * a
+        }
+        console.log(text03(5))
+
+        //매개변수가 여러개인 경우
+        //var text04 = a,b =>{return a*b}
+        var text04 = (a, b)=>{
+            return a * b
+        }
+        console.log(text04(10,5))
+
+
+
+
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

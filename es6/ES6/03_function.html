@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>함수02_2_콜백함수</title>
+  <script>
+   
+  /*
+    콜백함수: 함수자체를 매개변수(인수)로 받아서 본함수의 로직구현 부분을 마친후 그 매개변수로 받은 함수를 다시 호출하여 실행하는 함수 
+    
+    function 함수명(callback){ // 함수자체를 매개변수(인수)로 받음
+      ...
+      ...
+
+      callback(결과) // 본함수의 로직처리후 매개변수로 받은 함수를 호출 실행 
+
+    }
+
+    function callback(){
+
+      ...
+      ...
+
+    }
+
+    - 로직을 분리하여 처리 - 코드의 효율성 ( 비동기 처리에서 많이 쓰임 )
+
+  */ 
+  
+  
+  // 결과 부분을 콜백함수로 분리처리  
+
+ // 최종결과를 전역변수로 지정 ( 함수밖에서 사용이 가능 )
+
+var calculator=function(callback){ // 익명함수로 바꾸어 변수에 함수 리터럴 값으로 대입  ( 코드활용 편함 )
+
+    var result;
+    var num1
+    var op;
+    var num2;  
+
+    init() // 데이터 값입력 부분을 중첩함수(내부함수)로 처리  - 코드 그룹화 
+    conduct() // 데이터 비교처리 부분을 중첩함수(내부함수)로 처리  - 코드 그룹화 
+
+    function init(){
+
+      num1=prompt("첫번째 숫자를 입력하세요");  //변수가 선언되어있지 않으면 상위함수에서 선언된 변수가 사용된다. ( 내부에서 외부로 차례대로 참조 )
+      op=prompt("연산자를 선택하세요");
+      num2=prompt("두번째 숫자를 입력하세요")
+
+      num1=parseInt(num1);
+      num2=parseInt(num2);
+
+    }  
+
+    function conduct(){
+
+      switch (op) {
+
+        case "+":
+
+          result = num1 + num2;
+          break;
+
+        case "-":
+
+          result = num1 - num2;
+          break;
+
+        case "*":
+
+          result = num1 * num2;
+          break;
+
+        case "/":
+
+          result = num1 / num2;
+          break;
+
+        default:
+
+          result = "지원하지 않는 연산자입니다. "
+
+      }
+      
+      callback(result) // 출력부분을 콜백함수로 받아서 실행 - *** 출력부분을 나누어서 따로 실행이 가능 ***
+      //document.write(result);  // 결과물 출력 
+    }    
+
+}
+
+// 로직구현이 끝난후 실행할 함수(콜백함수)를 출력문이 다르게 분리해서 지정 
+
+/*
+주의) 콜백함수를 만들때도 result 매개변수로 지정 
+
+function print1(result){
+  document.write("첫번째숫자와 두번째숫자의 연산결과는"+result+"입니다.");
+}
+
+function print2(result){
+  document.write("정답은"+result+"입니다.");
+}
+*/
+
+// 콜백함수를 화살표 함수로 변경 ( 최종함수 밖에서 사용할수있도록 함수 밖에서 지정 - 내부함수일때는 밖에서 호출이 불가능 )
+
+var print1=(result)=>{document.write("첫번째숫자와 두번째숫자의 연산결과는" +result+ "입니다.")} // ES6 보간식활용 
+var print2=(result)=>{document.write("정답은"+result+"입니다.")}
+
+//init() ** 주의) 중첩함수(내부함수)는 함수밖에서 호출할수없다.  
+
+calculator(print1) // 콜백함수를 구분해서 실행가능 
+//calculator(print2) 
+       
+  
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

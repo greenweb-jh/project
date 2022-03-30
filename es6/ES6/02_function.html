@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>함수02_2_중첩함수</title>
+  <script>
+  
+  /*중첩함수(내부함수)의 정의와 특징이해 
+
+  중첩함수 : 함수내부에 또 다른 내부함수로 사용되는 함수 
+
+  function outer(){
+
+    function inner(){ // inner() 함수를 중첩함수 또는 내부함수, 지역함수 
+
+    }
+    inner()
+
+  }
+  outer()
+
+  - 함수를 많이 사용할때 관련있는 함수들을 내부함수로 사용하여 코드의 그룹화 - 코드관리 효율성과 퍼포먼스를 최소화  
+
+  - 중첩함수 사용시 관련함수들의 변수관계를 주의 ( 내부에서 외부로 차례대로 변수를 참조 )
+
+  - 중첩함수 (내부함수)는 함수안에서만 1회성으로 많이 사용된다. ( 함수밖에서 직접호출이 불가 - return을 사용하면 가능 )
+
+  */
+
+  // 계산기 일반 코드를 중첩함수로 변경 
+
+
+  // 계산기 일반코드 
+  
+  var result; // 최종결과를 전역변수로 선언 
+  var num1=prompt("첫번째 숫자를 입력하세요")  
+  var op=prompt("사칙연산자중 하나를 입력하세요")
+  var num2=prompt("두번째 숫자를 입력하세요")
+
+  num1=parseInt(num1);
+  num2=parseInt(num2);
+
+  switch(op){
+
+    case "+" : 
+
+      result=num1+num2;
+      break;
+
+    case "-" :
+
+      result=num1-num2;
+      break;
+
+    case "*" : 
+
+      result=num1*num2;
+      break;
+
+    case "/" : 
+
+      result=num1/num2;
+      break;
+
+    default : 
+
+      result="지원하지 않는 연산자입니다. "
+
+  }
+
+  document.write(result);     
+    
+   
+  
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

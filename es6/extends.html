@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        class Name{ //조부모
+
+            constructor(name){
+                this.name = name;
+            }
+
+            call(){
+                return `내 성은${this.name}`
+            }
+
+        }
+
+        class Last extends Name{ //부모
+
+            constructor(first, last){
+                super(first)
+                this.last = last
+            }
+
+            call02(){
+                return `${this.call()}이고, 이름은${this.last}이다.`
+            }
+        }
+
+        class Local extends Last{ //부모의 자식 상속 -> 상속
+            constructor(first, last, local){
+                super(first, last)
+                this.local = local
+                
+            }
+
+            abc(){
+                return `${this.call02()}이고 사는곳은 ${this.local}이다.`
+            }
+        }
+
+        var firstName = new Name('park')
+        console.log(firstName.call())
+        var fullName = new Last('park','hj')
+        console.log(fullName.call02())
+
+        var localName = new Local('park','jh','seoul')
+        console.log(localName.result())
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

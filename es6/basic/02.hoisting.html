@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         console.log(nnn); //undefined 변수는 있지만 값이 할당되지 않은 상태 null과는 다른 개념
+        var nnn = 123;
+
+        console.log(aaa); //Uncaught ReferenceError: Cannot access 'aaa' before initialization 해당하는 변수가 없음
+        let aaa = 123; 
+
+        /*
+        두 가지 변수 선언의 차이점은 변수를 선언하기 전에 변수를 읽느냐 읽지 않느냐의 차이다.
+        모든 선언(var, function, let, const)에는 선언됨과 동시에 호이스팅이 발생하게 되는데 
+        선언 -초기화 - 할당 3단계를 거쳐서 할당된다.
+
+        1)선언 = 변수를 변수 객체에 등록한다. 
+        2)초기화 = 변수 객체에 등록된 변수를 위한 공간을 메모리에 확보한다. (이 단계에서 모든 변수의 값은 undefined의 값으로 초기화된다.)
+        3)할당 = 초기화 단계에서 undefined로 초기화된 변수에 실제 값이 할당된다.
+        
+        var은 변수 선언과 초기화 단계를 한번에 거치기 때문에 선언문 이전에 변수를 찾아도 변수가 존재하는 걸로 인식한다(하지만 값은 없다)
+        let과 const는 선언과 초기화를 한번에 진행하지 않고 따로 진행된다.
+        초기화 단계는 변수가 선언문에 도달했을때에 이루어진다. 즉 초기화가 되지 않았기 때문에 변수에 접근하려고 하면 
+        에러가 난다.(초기화를 진행하지 않았기 때문에 영역을 확보하지 못했기 때문)
+
+
+        */
+
+        
+
+
+
+    </script>
+</head>
+<body>
+
+    
+    
+</body>
+</html>

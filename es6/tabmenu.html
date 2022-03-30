@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        ul, ol {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        section {
+            width: 300px;
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+        section ul::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        section ul li {
+            float: left;
+        }
+        section ul li a {
+            display: block;
+            width: 100px;
+            height: 40px;
+            background: #666;
+            font: bold 12px/40px "arial";
+            color: #bbb;
+            text-align: center;
+        }
+        section ul li.on a {
+            background: #fff;
+            color: #444;
+        }
+        section article> div {
+            width: 100%;
+            height: 200px;
+            background: #fff;
+            font: bold 20px/200px "arial";
+            color: #444;
+            text-align: center;
+            display: none;
+        }
+        section article>div.on {
+            display: block;
+        }
+
+
+    </style>
+
+    <script>
+
+        /*es6*/
+
+        window.onload = () =>{
+
+            class Tab{
+
+                constructor(opt){
+                    this.init(opt);
+                    this.bindinbEvent()
+                }
+                init(opt){
+                    this.item = document.querySelector(opt.item)
+                    this.tab = this.item.querySelector('ul')
+                    this.tabs = this.tab.querySelectorAll('li');
+
+                    this.box = this.item.querySelector('article');
+                    this.boxs = this.box.querySelectorAll('div')
+                }
+
+                bindinbEvent(){
+                    this.tabs.forEach((el, index)=>{
+                        el.addEventListener('click', e =>{
+                            e.preventDefault();
+                            this.activation(this.tabs, index);
+                            this.activation(this.boxs, index)
+
+                            //console.log(this.tabs, index)
+                        })
+                    })
+                }
+
+                activation(list, index){
+                    for(let el of list){
+                        el.classList.remove('on')
+                    }
+                    list[index].classList.add('on')
+                }
+
+            }
+
+            new Tab({
+                item : '#tab1'
+        })
+
+            new Tab({
+                item : '#tab2'
+        })
+
+           
+        }
+
+
+
+        /* 제이쿼리 통합 버전
+        function Tab(el){
+    this.$frame = $(el);
+    this.$btns = this.$frame.find("ul>li");
+    this.$boxs = this.$frame.find("article>div");   
+  
+
+    this.$btns.on("click", function(e){
+        e.preventDefault();        
+        var i = $(e.currentTarget).index();
+        this.activation(i);
+    }.bind(this));
+}
+
+Tab.prototype.activation = function(index){
+    this.$btns.removeClass("on");
+    this.$btns.eq(index).addClass("on");
+
+    this.$boxs.removeClass("on");
+    this.$boxs.eq(index).addClass("on");
+}
+        
+        
+        
+        */
+        
+
+
+
+
+    </script>
+</head>
+<body>
+
+    <section id="tab1">
+        <ul class="tab01">
+            <li class="on"><a href="#">button1</a></li>
+            <li><a href="#">button2</a></li>
+            <li><a href="#">button3</a></li>
+        </ul>
+
+        <article class="group">
+            <div class="on">BOX1</div>
+            <div>BOX2</div>
+            <div>BOX3</div>
+        </article>
+    </section>
+
+     <section id="tab2">
+        <ul class="tab02">
+            <li class="on"><a href="#">button1</a></li>
+            <li><a href="#">button2</a></li>
+            <li><a href="#">button3</a></li>
+        </ul>
+
+        <article class="group02">
+            <div class="on">BOX1</div>
+            <div>BOX2</div>
+            <div>BOX3</div>
+        </article>
+    </section>
+
+
+    
+</body>
+</html>

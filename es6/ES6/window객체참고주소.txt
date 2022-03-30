@@ -1,0 +1,25 @@
+扩档快按眉 曼绊 林家 
+
+
+history 按眉 
+
+https://developer.mozilla.org/ko/docs/Web/API/History_API
+
+
+
+location 按眉 
+
+https://www.codingfactory.net/10438
+
+https://iamawebdeveloper.tistory.com/41
+
+
+window.statusbar 按眉 
+
+https://info5566.tistory.com/entry/Javascript-Window%EA%B0%9D%EC%B2%B4-Status-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+
+
+胶农费官包访 
+
+https://hyelia.tistory.com/46
+
